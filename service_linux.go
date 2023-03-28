@@ -80,6 +80,15 @@ func init() {
 			},
 			new: newSystemVService,
 		},
+		linuxSystemService{
+			name:   "linux-procd",
+			detect: isProcd,
+			interactive: func() bool {
+				is, _ := isInteractive()
+				return is
+			},
+			new: newProcdService,
+		},
 	)
 }
 

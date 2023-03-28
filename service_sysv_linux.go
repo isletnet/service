@@ -168,11 +168,19 @@ func (s *sysv) Status() (Status, error) {
 }
 
 func (s *sysv) Start() error {
-	return run("service", s.Name, "start")
+	cp, err := s.configPath()
+	if err != nil {
+		return err
+	}
+	return run(cp, "start")
 }
 
 func (s *sysv) Stop() error {
-	return run("service", s.Name, "stop")
+	cp, err := s.configPath()
+	if err != nil {
+		return err
+	}
+	return run(cp, "stop")
 }
 
 func (s *sysv) Restart() error {
