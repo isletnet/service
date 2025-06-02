@@ -72,15 +72,6 @@ func init() {
 			new: newRCSService,
 		},
 		linuxSystemService{
-			name:   "unix-systemv",
-			detect: func() bool { return true },
-			interactive: func() bool {
-				is, _ := isInteractive()
-				return is
-			},
-			new: newSystemVService,
-		},
-		linuxSystemService{
 			name:   "linux-procd",
 			detect: isProcd,
 			interactive: func() bool {
@@ -88,6 +79,15 @@ func init() {
 				return is
 			},
 			new: newProcdService,
+		},
+		linuxSystemService{
+			name:   "unix-systemv",
+			detect: func() bool { return true },
+			interactive: func() bool {
+				is, _ := isInteractive()
+				return is
+			},
+			new: newSystemVService,
 		},
 	)
 }
