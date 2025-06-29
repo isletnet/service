@@ -178,7 +178,7 @@ const procdScript = `#!/bin/sh /etc/rc.common
 # Copyright (C) 2008 OpenWrt.org
 
 USE_PROCD=1
-START=90
+START=50
 
 cmd="{{.Path}}{{range $key,$value :=.Arguments}}{{" "}}{{$value}}{{end}}"
 
